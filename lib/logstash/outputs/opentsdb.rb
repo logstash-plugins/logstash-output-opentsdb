@@ -22,7 +22,7 @@ class LogStash::Outputs::Opentsdb < LogStash::Outputs::Base
   # The metric(s) to use. This supports dynamic strings like %{source_host}
   # for metric names and also for values. This is an array field with key
   # of the metric name, value of the metric value, and multiple tag,values . Example:
-  #
+  # [source,ruby]
   #     [
   #       "%{host}/uptime",
   #       %{uptime_1m} " ,
