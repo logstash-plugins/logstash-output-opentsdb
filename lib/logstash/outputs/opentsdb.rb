@@ -8,7 +8,6 @@ require "socket"
 #
 class LogStash::Outputs::Opentsdb < LogStash::Outputs::Base
   config_name "opentsdb"
-  milestone 1
 
   # Enable debugging.
   config :debug, :validate => :boolean, :default => false, :deprecated => "This setting was never used by this plugin. It will be removed soon."
