@@ -53,7 +53,7 @@ class LogStash::Outputs::Opentsdb < LogStash::Outputs::Base
 
   public
   def receive(event)
-    return unless output?(event)
+    
 
     # Opentsdb message format: put metric timestamp value tagname=tagvalue tag2=value2\n
 
