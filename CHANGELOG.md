@@ -1,4 +1,4 @@
-## 4.0.0
+## 3.1.0
  - breaking,config: Removing deprecated config `debug`.
 
 ## 3.0.1
