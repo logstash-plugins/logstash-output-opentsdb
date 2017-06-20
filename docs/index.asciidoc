@@ -79,7 +79,7 @@ coerced will zero (0)
   * Value type is <<number,number>>
   * Default value is `4242`
 
-The port to connect on your graphite server.
+The port to connect on your opentsdb server.
 
 
 
