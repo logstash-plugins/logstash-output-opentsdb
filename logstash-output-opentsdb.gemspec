@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
 
   s.name            = 'logstash-output-opentsdb'
-  s.version         = '3.1.3'
+  s.version         = '3.1.4'
   s.licenses        = ['Apache License (2.0)']
-  s.summary         = "This output allows you to pull metrics from your logs and ship them to opentsdb"
+  s.summary         = "Writes metrics to OpenTSDB"
   s.description     = "This gem is a Logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/logstash-plugin install gemname. This gem is not a stand-alone program"
   s.authors         = ["Elastic"]
   s.email           = 'info@elastic.co'
