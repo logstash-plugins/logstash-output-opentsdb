@@ -32,7 +32,18 @@ class LogStash::Outputs::Opentsdb < LogStash::Outputs::Base
   # coerced will zero (0)
   config :metrics, :validate => :array, :required => true
 
+  # Use millisecond resolution for timestamp (supported by OpenTSDB version >=2.0).
+  # See http://opentsdb.net/docs/build/html/user_guide/writing.html#timestamps
+  config :use_millis, :validate => :boolean, :default => false
+
   def register
+    if use_millis
+      # concatenate seconds and milliseconds into 13-digit timestamp
+      @time_format = "%{+%s}%{+SSS}"
+    else
+      @time_format = "%{+%s}"
+    end
+
     connect
   end # def register
 
@@ -63,7 +74,7 @@ class LogStash::Outputs::Opentsdb < LogStash::Outputs::Base
       # The first part of the message
       message = ['put',
                  event.sprintf(name),
-                 event.sprintf("%{+%s}"),
+                 event.sprintf(@time_format),
                  event.sprintf(value),
       ].join(" ")
 
@@ -81,6 +92,7 @@ class LogStash::Outputs::Opentsdb < LogStash::Outputs::Base
 
       # TODO(sissel): Test error cases. Catch exceptions. Find fortune and glory.
       begin
+        @logger.debug("Write message to opentsdb", :msg => message)
         @socket.puts(message)
       rescue Errno::EPIPE, Errno::ECONNRESET => e
         @logger.warn("Connection to opentsdb server died",
