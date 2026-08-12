@@ -1,7 +1,6 @@
 # Logstash Plugin
 
-[![Build
-Status](http://build-eu-00.elastic.co/view/LS%20Plugins/view/LS%20Outputs/job/logstash-plugin-output-opentsdb-unit/badge/icon)](http://build-eu-00.elastic.co/view/LS%20Plugins/view/LS%20Outputs/job/logstash-plugin-output-opentsdb-unit/)
+[![Unit Tests](https://github.com/logstash-plugins/logstash-output-opentsdb/actions/workflows/unit-tests.yml/badge.svg?branch=main)](https://github.com/logstash-plugins/logstash-output-opentsdb/actions/workflows/unit-tests.yml)
 
 This is a plugin for [Logstash](https://github.com/elastic/logstash).
 
